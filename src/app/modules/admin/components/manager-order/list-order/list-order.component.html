@@ -1,0 +1,48 @@
+<div style="display: flex;justify-content: space-between;">
+    <div class="h2" style="font-weight: bold; margin-bottom: 30px;">Quản lý đơn hàng</div>
+    <div>
+    </div>
+</div>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+   
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> Mã đơn hàng </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+  
+
+    <ng-container matColumnDef="createdAt">
+      <th mat-header-cell *matHeaderCellDef> Ngày đặt </th>
+      <td mat-cell *matCellDef="let element"> {{element.createdAt | date: 'dd/MM/yyyy'}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="typePayment">
+        <th mat-header-cell *matHeaderCellDef> Kiểu thanh toán </th>
+        <td mat-cell *matCellDef="let element">Tiền mặt</td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef> Trạng thái </th>
+        <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="address">
+        <th mat-header-cell *matHeaderCellDef> Địa chỉ </th>
+        <td mat-cell *matCellDef="let element"> {{element.address.detail}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef> Tính năng </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-raised-button color="primary" routerLink="/admin/order-detail/{{element.id}}">Chi tiết</button>
+      </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+  
+  

@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="text-center">
+        <p class="h2">Danh sách đơn hàng đã đặt</p>
+    </div>
+    <div class="row" style="background-color: white; padding: 20px; border-radius: 15px; margin: 15px 0;" *ngFor="let order of listOrder">
+        <div class="col-4" style="margin: auto 0;">
+            <p class="h5">Mã đơn: {{order.id}}</p>
+        </div>
+        <div class="col-4">
+            <p style="font-weight: bold;">Ngày đặt: {{order.createdAt | date: 'dd/MM/yyyy'}}</p>
+            <p style="font-weight: bold;">Tổng tiền: {{order.totalPrice | number}} VND</p>
+        </div>
+        <div class="col-4" style="text-align: right;margin: auto 0;">
+            <p style="color: red;">Trạng thái: {{order.status}}</p>
+        </div>
+    </div>
+</div>

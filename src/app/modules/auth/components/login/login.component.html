@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="text-center login">
+        <p>Đăng nhập với:</p>
+        <div class="d-flex justify-content-center">
+            <i class="bi bi-facebook text-primary m-2"></i>
+            <i class="bi bi-google text-primary m-2"></i>
+            <i class="bi bi-twitter text-primary m-2"></i>
+            <i class="bi bi-github text-primary m-2"></i>
+        </div>
+        <p>hoặc:</p>
+        <form [formGroup]="options" class="form-login" (submit)="submit()">
+            <mat-form-field appearance="fill" class="form-item">
+                <mat-label>Nhập tên đăng nhập của bạn:</mat-label>
+                <input matInput placeholder="username" [formControl]="username" required>
+                <mat-error *ngIf="username.invalid">{{getErrorEmailMessage()}}</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="form-item">
+                <mat-label>Nhập mật khẩu của bạn:</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" [formControl]="password" required>
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <mat-error *ngIf="password.invalid">{{getErrorPasswordMessage()}}</mat-error>
+            </mat-form-field>
+            <button 
+                mat-raised-button 
+                color="primary" 
+                class="form-item" 
+                [disabled]="!options.valid"
+                type="submit"
+            >Đăng nhập</button>
+        </form>
+        <p *ngIf="errorLogin" style="margin-top: 5px; color: red;">Thông tin đăng nhập không chính xác!</p>
+        <p style="margin-top: 30px;">Chưa có tài khoản? <a href="/auth/register">Đăng ký</a></p>
+    </div>
+</div>

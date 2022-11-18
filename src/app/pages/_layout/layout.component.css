@@ -1,0 +1,21 @@
+/* .layout {
+    position: relative;
+    width: 100%;
+}
+.layout-content{
+    position:relative;
+    z-index: 1;
+    height: 100%;
+    min-width: 1900px;
+    max-width: 1500px;
+}
+.content {
+    width: 100%;
+}
+@media screen and (max-width: 1000px) {
+    .nebula {
+       width: 100%;
+       overflow: hidden;
+       margin: 0 -150px 0 -150px;
+    }
+ } */

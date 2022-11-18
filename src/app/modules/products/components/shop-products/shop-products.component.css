@@ -1,0 +1,18 @@
+.card-brand {
+    background-color: white;
+    border-radius: 15px;
+    padding: 10px 10px;
+    border: 1px black solid;
+    text-align: center;
+}
+.card_demand{
+    background-color: white;
+    border-radius: 20px;
+    padding: 5px 5px;
+    border: 1px black solid;
+    text-align: center;
+    font-size: 13px;
+}
+.ng-star-inserted {
+    margin-bottom: 15px;
+}

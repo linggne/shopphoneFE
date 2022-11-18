@@ -1,0 +1,19 @@
+<div class="text-center">
+  <h1 mat-dialog-title>Cập nhật trạng thái</h1>
+  <div mat-dialog-content>
+      <mat-form-field appearance="fill">
+          <mat-label></mat-label>
+          <mat-select [formControl]="status" required>
+            <mat-option value="Mới">Mới</mat-option>
+            <mat-option value="Đang xử lý">Đang xử lý</mat-option>
+            <mat-option value="Đang giao hàng">Đang giao hàng</mat-option>
+            <mat-option value="Hoàn thành">Hoàn thành</mat-option>
+            <mat-option value="Hủy">Hủy</mat-option>
+          </mat-select>
+        </mat-form-field>
+  </div>
+  <div mat-dialog-actions style="justify-content: center;">
+    <button mat-button (click)="onNoClick()">Hủy</button>
+    <button mat-button [mat-dialog-close]="data" cdkFocusInitial (click)="changeStatus()" style="background-color: green; color: white;">Cập nhật</button>
+  </div>
+</div>

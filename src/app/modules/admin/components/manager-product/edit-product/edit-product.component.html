@@ -1,0 +1,133 @@
+<div class="h2">
+    Cập nhật sản phẩm
+</div>
+
+<form class="form-add-product" [formGroup]="formProduct" (submit)="onSubmit()">
+    <div class="d-flex">
+        <mat-form-field appearance="fill" class="form-item">
+            <mat-label>Tên sản phẩm</mat-label>
+            <input matInput [formControl]="name" required>
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="form-item">
+            <mat-label>Thương hiệu</mat-label>
+            <mat-select [formControl]="brandId" required>
+              <mat-option value="{{brand.id}}" *ngFor="let brand of listBrands">{{brand.name}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+   <div class="d-flex">
+        <mat-form-field appearance="fill" class="form-item">
+            <mat-label>Đơn giá</mat-label>
+            <input matInput [formControl]="price" required>
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="form-item">
+            <mat-label>Màn hình</mat-label>
+            <input matInput [formControl]="screen">
+        </mat-form-field>
+   </div>
+    <div class="d-flex">
+        <mat-form-field appearance="fill" class="form-item">
+            <mat-label>Hệ điều hành</mat-label>
+            <input matInput [formControl]="operatingSystem">
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="form-item">
+            <mat-label>Chip</mat-label>
+            <input matInput [formControl]="chip">
+        </mat-form-field>
+    </div>
+   <div class="d-flex">
+        <mat-form-field appearance="fill" class="form-item">
+            <mat-label>Ram</mat-label>
+            <input matInput [formControl]="ram">
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="form-item">
+            <mat-label>Bộ nhớ trong</mat-label>
+            <input matInput [formControl]="internalMemory">
+        </mat-form-field>
+   </div>
+    <div class="d-flex">
+        <mat-form-field appearance="fill" class="form-item">
+            <mat-label>Camera sau</mat-label>
+            <input matInput [formControl]="rearCamera">
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="form-item">
+            <mat-label>Camera trước</mat-label>
+            <input matInput [formControl]="frontCamera">
+        </mat-form-field>
+    </div>
+    <div class="d-flex">
+        <mat-form-field appearance="fill" class="form-item">
+            <mat-label>Trạng thái</mat-label>
+            <mat-select [formControl]="status" required>
+              <mat-option value="new">Mới</mat-option>
+              <mat-option value="hot">Bán chạy</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="form-item">
+            <mat-label>Type</mat-label>
+            <mat-select [formControl]="type" required>
+              <mat-option value="phone">Điện thoại</mat-option>
+              <mat-option value="accessory">Phụ kiện</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div class="d-flex">
+        <mat-form-field appearance="fill" class="form-item">
+            <mat-label>Số lượng</mat-label>
+            <input matInput [formControl]="quantity" required type="number">
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="form-item" style="visibility: hidden;">
+            <input matInput>
+        </mat-form-field>
+    </div>
+    <div class="mb-5 form-item">
+        <label>Mô tả sản phẩm *</label>
+        <ckeditor [editor]="Editor" [config]='config' [formControl]="description" required
+            placeholder="Mô tả sản phẩm"
+            (ready)="onReady($event)"
+        ></ckeditor>
+    </div>
+    <div class="d-flex">
+        <p style="margin-top: 10px;margin-right: 10px;margin-left: 10px;">Chọn ảnh chính: </p>
+        <input
+            type="file"
+            id="fileInput"
+            name="fileInput"
+            accept="image/*" multiple 
+            (change)="selectFiles($event)"
+        />
+    </div>
+    <div style="width: 250px;">
+        <img *ngIf="imageMain" [src]="imageMain" class="image">
+    </div>
+    <div *ngIf="!imageMain">
+        <div *ngFor="let image of product?.image" style="width: 250px;">
+            <img src="{{image.url}}" alt="" *ngIf="image.type==='main'" class="image">
+        </div>
+    </div>
+    <div class="d-flex">
+        <p style="margin-top: 10px;margin-right: 10px;margin-left: 10px;">Chọn ảnh các phụ: </p>
+        <input
+            type="file"
+            id="fileInput"
+            name="fileInput"
+            accept="image/*" multiple 
+            (change)="selectFilesPhu($event)"
+        />
+    </div>
+    <div class="d-flex">
+        <div *ngIf="previews">
+            <img *ngFor="let image of previews" [src]="image" class="image" style="margin-right: 20px;">
+        </div>
+        <div *ngIf="!previews">
+            <div *ngFor="let image of product?.image">
+                <img src="{{image.url}}" alt="" *ngIf="image.type==='extra'" class="image">
+            </div>
+        </div>
+    </div>
+    <div class="d-flex mt-3 mb-3 justify-content-end">
+        <button mat-raised-button class="btn-cancel" routerLink="/admin/manager-list-product">Hủy</button>
+        <button mat-raised-button color="primary" class="btn-save" type="submit"   [disabled]="!formProduct.valid">Lưu</button>
+    </div>
+</form>
+

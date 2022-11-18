@@ -1,0 +1,53 @@
+<div style="display: flex;justify-content: space-between;">
+    <div class="h2" style="font-weight: bold; margin-bottom: 30px;">Quản lý sản phẩm</div>
+    <div>
+        <a mat-raised-button style="background-color: green; width: 200px;color: white;" href="/admin/add-product">Thêm sản phẩm</a>
+    </div>
+</div>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+   
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> Mã sản phẩm </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+  
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Tên sản phẩm </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="image">
+      <th mat-header-cell *matHeaderCellDef> Hình ảnh </th>
+      <td mat-cell *matCellDef="let element"> 
+        <div *ngFor="let image of element.image">
+          <img src="{{image.url}}" alt="" class="image" *ngIf="image.type === 'main'">
+        </div>  
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="quantity">
+      <th mat-header-cell *matHeaderCellDef> số lượng </th>
+      <td mat-cell *matCellDef="let element"> {{element.quantity}}</td>
+    </ng-container>
+  
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef> Trạng thái </th>
+      <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef> Tùy chọn </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-raised-button color="primary" style="margin-right: 10px;" routerLink="/admin/edit-product/{{element.id}}">Edit</button>
+        <button mat-raised-button color="warn" (click)="deleteProduct(element.id)">Delete</button>
+      </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+  
+  

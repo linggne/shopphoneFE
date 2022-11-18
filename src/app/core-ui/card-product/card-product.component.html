@@ -1,0 +1,20 @@
+<div class="card-product" type="button">
+    <div *ngFor="let image of product.image" class="card-image">
+        <img class="image" src="{{image.url}}" alt="" *ngIf="image.type === 'main'">
+    </div>
+   <div class="card-content">
+       
+        <div class="card-name">
+            <p class="name">{{product.name}}</p>
+            <div class="button">
+                <div class="btn-group">
+                    <button mat-button color="warn" (click)="addToCart(product.id)">Mua ngay</button>
+                    <button mat-button (click)="getUrl(product.id)">Chi tiết</button>
+                </div>
+            </div>
+        </div>
+        <div class="card-price">
+            <p class="price">{{product.price}} VND</p>
+        </div>
+   </div>
+</div>

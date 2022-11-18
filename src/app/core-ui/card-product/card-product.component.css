@@ -1,0 +1,56 @@
+.image{
+    width: 100%;
+    height: 100%;
+}
+.price {
+    color: red;
+    font-weight: 700;
+}
+.name {
+    font-weight: bold;
+    margin-top: 5px;
+}
+.card-product{
+    width: 100%; 
+    background-color: white;
+    padding: 15px 15px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin-top: 20px;
+}
+.card-image{
+    flex-shrink: 0;
+  }
+.card-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+}
+.card-name {
+    margin-top: 10px;
+    flex-shrink: 0;
+    height: 70px;
+}
+.card-price{
+    margin-top: auto;
+}
+.btn-group {
+    display: flex;
+    justify-content: space-between;
+}
+.card-product:hover .name {
+    display: none;
+} 
+.button {
+    display: none;
+}
+
+.card-product:hover .button {
+    display: block;
+}
+
+
+

@@ -1,0 +1,82 @@
+<div class="cart-content container">
+    <div class="text-center" style="height: 400px; margin-top: 50px;" *ngIf="!cart">
+      <i class="bi bi-cart-x-fill" style="font-size: 50px;"></i>
+      <p>Chưa có sản phẩm trong giỏ hàng</p>
+      <button mat-raised-button color="primary" style="width: 100%;" routerLink="/">Quay về trang chủ</button>
+    </div>
+    <div class="row" *ngIf="cart">
+        <div class="col-8">
+            <p class="h2">Sản phẩm trong giỏ</p>
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+                <ng-container matColumnDef="image">
+                  <th mat-header-cell *matHeaderCellDef> Hình ảnh </th>
+                  <td mat-cell *matCellDef="let element">
+                    <div *ngFor="let image of element.product.image">
+                      <img src="{{image.url}}" alt="" class="image" *ngIf="image.type === 'main'">
+                    </div>
+                  </td>
+                </ng-container>
+                <ng-container matColumnDef="name">
+                  <th mat-header-cell *matHeaderCellDef> Tên </th>
+                  <td mat-cell *matCellDef="let element"> {{element.product.name}} </td>
+                </ng-container>
+              
+                <ng-container matColumnDef="quantity">
+                  <th mat-header-cell *matHeaderCellDef> Số lượng </th>
+                  <td mat-cell *matCellDef="let element">
+                    <button mat-icon-button (click)="removeTocart(element.id, element.quantity)">
+                      <i class="bi bi-dash icon-cart"></i>
+                    </button> 
+                    {{element.quantity}}
+                    <button mat-icon-button (click)="addToCart(element.product.id)">
+                      <i class="bi bi-plus icon-cart"></i>
+                    </button> 
+                  </td>
+                </ng-container>
+              
+                <ng-container matColumnDef="totalPrice">
+                  <th mat-header-cell *matHeaderCellDef> Tổng tiền </th>
+                  <td mat-cell *matCellDef="let element"> {{(element.product.price * element.quantity)| number}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="action">
+                  <th mat-header-cell *matHeaderCellDef></th>
+                  <td mat-cell *matCellDef="let element">
+                    <button mat-button (click)="deleteDetail(element.id, element.quantity)"><i class="bi bi-x" style="font-size: 18px;"></i></button>
+                  </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              </table>              
+        </div>
+        <div class="col-4">
+            <p class="h2">Đơn hàng</p>
+            <hr>
+            <div class="summary-content">
+                <div class="summary-content-1">
+                  <div class="h6">
+                    Số lượng: {{cart.countProduct}}
+                  </div>
+                  <div class="h6">
+                      {{cart.totalPrice | number}} VND
+                  </div>
+                </div>
+                <div class="summary-content-1">
+                  <p class="h6 mb-2">Giao hàng: </p>
+                  <p>Miễn phí giao hàng</p>
+                </div>
+                <div class="summary-content-1">
+                  <div class="h6">
+                    Tổng tiền
+                  </div>
+                  <div class="h6">
+                    {{cart.totalPrice | number}} VND
+                  </div>
+                </div>
+                <hr>
+                <button mat-raised-button class="btn-checkout" routerLink="/shopping/order">Kiểm tra</button>
+            </div>
+        </div>
+    </div>
+</div>

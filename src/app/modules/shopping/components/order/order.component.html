@@ -1,0 +1,89 @@
+<div class="container">
+    <div class="row">
+        <div class="col-8">
+            <p class="h2">CHI TIẾT HÓA ĐƠN</p>
+            <hr>
+            <div class="d-flex" style="justify-content: space-between;">
+                <mat-form-field appearance="fill" class="form-item">
+                    <mat-label>Họ</mat-label>
+                    <input matInput [formControl]="firstName" required>
+                </mat-form-field>
+                <mat-form-field appearance="fill" class="form-item">
+                    <mat-label>Tên</mat-label>
+                    <input matInput [formControl]="lastName" required>
+                </mat-form-field>
+            </div>
+            <div class="d-flex" style="justify-content: space-between;">
+                <mat-form-field appearance="fill" class="form-item">
+                    <mat-label>Số điện thoại</mat-label>
+                    <input matInput [formControl]="phone" required>
+                </mat-form-field>
+                <mat-form-field appearance="fill" class="form-item">
+                    <mat-label>Email</mat-label>
+                    <input matInput [formControl]="email" required>
+                </mat-form-field>
+            </div>
+            <mat-form-field appearance="fill" class="form-item">
+                <mat-label>Tỉnh, thành phố</mat-label>
+                <mat-select (selectionChange)="onStateChange($event.value)" [formControl]="state" required [(value)]="stateOwl">
+                  <mat-option *ngFor="let state of states" [value]="state">{{state.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="form-item">
+                <mat-label>Huyện</mat-label>
+                <mat-select [formControl]="city" required>
+                  <mat-option *ngFor="let city of cities" [value]="city.name">{{city.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="form-item">
+                <mat-label>Địa chỉ</mat-label>
+                <input matInput [formControl]="address" required>
+            </mat-form-field>
+            <mat-form-field class="form-item" appearance="fill">
+                <mat-label>Ghi chú</mat-label>
+                <textarea matInput placeholder="Giao giờ hành chính...." [formControl]="note"></textarea>
+              </mat-form-field>
+              
+        </div>
+        <div class="col-4">
+            <div style="background-color: #e7e3d4; padding: 20px;">
+                <p class="h3">Đơn hàng của bạn</p>
+                <hr>
+                <div class="d-flex" style="justify-content: space-between;margin: 15px;">
+                    <div>
+                        Sản phẩm
+                    </div>
+                    <div>
+                        Thành tiền
+                    </div>
+                </div>
+                <div class="d-flex" style="justify-content: space-between;margin: 15px;" *ngFor="let item of productDetail">
+                    <div style="width: 50%;">
+                        {{item.product.name}}
+                    </div>
+                    <div style="width: 50%; text-align: right;">
+                        {{item.product.price | number}} VND
+                    </div>
+                </div>
+                <hr>
+                <div class="d-flex" style="justify-content: space-between;margin: 15px;">
+                    <div>
+                        Tổng tiền
+                    </div>
+                    <div style="color: red;">
+                        {{totalPrice | async | number}} VND
+                    </div>
+                </div>
+                <div class="d-flex" style="justify-content: space-between;margin: 15px;">
+                    <div>
+                        Tổng
+                    </div>
+                    <div style="color: red;">
+                        {{totalPrice | async | number}} VND
+                    </div>
+                </div>
+                <button mat-flat-button style="background-color: black;color: white; width: 100%;" (click)="onSubmit()" [disabled]="!formOrder.valid">Đặt hàng</button>
+            </div>
+        </div>
+    </div>
+</div>

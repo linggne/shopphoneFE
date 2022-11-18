@@ -1,0 +1,102 @@
+<div class="container">
+    <p class="h2">{{product?.name}}</p>
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <owl-carousel-o [options]="customOptions">
+                <ng-template carouselSlide *ngFor="let image of product?.image">
+                    <div>
+                        <img class="slide" src="{{image.url}}" alt="">
+                    </div>
+                </ng-template>
+            </owl-carousel-o>
+        </div>
+        <div class="col-12 col-md-6">
+            <p class="text-danger h4">{{product?.price | number}} VND</p>
+            <div class="discount">
+                <div class="mb-3 h6 title-discount">Khuyến mãi</div>
+                <ul class="check-list">
+                    <li class="item-discount">Tặng ngay combo voucher 800k (200k Watch | 200k Tablet | 200k Loa | 200k Macbook)</li>
+                    <li class="item-discount">Tặng ngay combo quà tặng 1.000.000đ khi trả góp qua mPOS</li>
+                    <li class="item-discount">[Ưu đãi] Tặng thêm 2 tháng khi mua Bảo hành VIP 12 tháng</li>
+                    <li class="item-discount">Tặng suất mua kèm Airpods 2 chỉ 2.549.000đ (Giá gốc: 3.190.000đ)</li>
+                  </ul>
+            </div>
+            <div class="row list-insurance">
+                <div class="col-6 d-flex">
+                    <div class="">
+                        <img src="../../../../../assets/icon/baohanh.png" alt="">
+                    </div>
+                    <div class="">
+                        <p class="mt-2">Bảo hành đến 12 tháng</p>
+                    </div>
+                </div>
+                <div class="col-6 d-flex">
+                    <div class="">
+                        <img src="../../../../../assets/icon/doitra.png" alt="">
+                    </div>
+                    <div class="">
+                        <p class="mt-2">45 NGÀY 1 ĐỔI 1</p>
+                    </div>
+                </div>
+                <div class="col-6 d-flex">
+                    <div class="">
+                        <img src="../../../../../assets/icon/giaofree.png" alt="">
+                    </div>
+                    <div class="">
+                        <p class="mt-2">GIAO NHANH MIỄN PHÍ</p>
+                    </div>
+                </div>
+                <div class="col-6 d-flex">
+                    <div class="">
+                        <img src="../../../../../assets/icon/dungthu.png" alt="">
+                    </div>
+                    <div class="">
+                        <p class="mt-2">168 GIỜ DÙNG THỬ</p>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-3">
+                <button mat-raised-button color="warn" class="btn-buy" (click)="addToCart()">Mua Ngay</button>
+            </div>
+        </div>
+    </div>
+    <p>Thông số kĩ thuật</p>
+    <hr>
+    <div class="row">
+        <div class="col-12 col-md-6" [innerHTML]="product?.description">
+        </div>
+        <div class="col-12 col-md-6">
+            <p class="h5">Cấu hình sản phẩm</p>
+            <table id="customers">
+                <tr>
+                  <td>Màn hình:</td>
+                  <td>{{product?.screen}}</td>
+                </tr>
+                <tr>
+                  <td>Hệ điều hành:</td>
+                  <td>{{product?.operatingSystem}}</td>
+                </tr>
+                <tr>
+                  <td>Camera sau:</td>
+                  <td>{{product?.rearCamera}}</td>
+                </tr>
+                <tr>
+                  <td>Camera trước:</td>
+                  <td>{{product?.frontCamera}}</td>
+                </tr>
+                <tr>
+                  <td>Chip:</td>
+                  <td>{{product?.chip}}</td>
+                </tr>
+                <tr>
+                  <td>RAM:</td>
+                  <td>{{product?.ram}}</td>
+                </tr>
+                <tr>
+                  <td>Bộ nhớ trong:</td>
+                  <td>{{product?.internalMemory}}</td>
+                </tr>
+              </table>
+        </div>
+    </div>
+</div>

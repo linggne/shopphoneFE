@@ -1,0 +1,21 @@
+.form-item{
+    width: 100%;
+    margin: 10px 10px;
+}
+.form-add-product{
+    width: 100%;
+}
+.image{
+    width: 150px;
+    height: 200px;
+}
+.btn-save{
+    width: 100px;
+    margin-left: 20px;
+}
+.btn-cancel{
+    width: 100px;
+}
+.ck.ck-editor__main .ck-content {
+    height: 239px;
+}

@@ -1,0 +1,181 @@
+<owl-carousel-o [options]="customOptions">
+    <ng-template carouselSlide>
+        <div>
+            <img class="slide" style=" border-radius: 20px;" src="https://res.cloudinary.com/awi-ln/image/upload/v1658918805/720-220-720x220-110_rf8rrb.png" alt="">
+        </div>
+    </ng-template>  
+    <ng-template carouselSlide>
+        <div>
+            <img class="slide" style=" border-radius: 20px;" src="https://res.cloudinary.com/awi-ln/image/upload/v1658918805/18-aseri-720-220-720x220-3_k6vbiv.png" alt="">
+        </div>
+    </ng-template>  
+    <ng-template carouselSlide>
+        <div>
+            <img class="slide" style=" border-radius: 20px;" src="https://res.cloudinary.com/awi-ln/image/upload/v1658918805/720-220-720x220-110_rf8rrb.png" alt="">
+        </div>
+    </ng-template>  
+</owl-carousel-o>
+
+<div class="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-3">
+                <div class="d-flex" style="background-color: white; border-radius: 10px;justify-content: space-between; padding: 10px 25px;">
+                    <div>
+                        <img style="width: 70px; height: 70px;" src="../../../../../assets/icon/giamgia.png" alt="">
+                    </div>
+                    <div style="margin: auto 0; font-weight: 500; font-size: 22px;">
+                        Chỉ giảm online
+                    </div>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="d-flex" style="background-color: white; border-radius: 10px;justify-content: space-between; padding: 10px 25px;">
+                    <div>
+                        <img style="width: 70px; height: 70px;" src="../../../../../assets/icon/29.png" alt="">
+                    </div>
+                    <div style="margin: auto 0; font-weight: 500; font-size: 22px;">
+                        Lễ lớn - Giảm lớn
+                    </div>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="d-flex" style="background-color: white; border-radius: 10px;justify-content: space-between; padding: 10px 25px;">
+                    <div>
+                        <img style="width: 70px; height: 70px;" src="../../../../../assets/icon/xahang.png" alt="">
+                    </div>
+                    <div style="margin: auto 0; font-weight: 500; font-size: 22px;">
+                        Xả hàng giảm sốc
+                    </div>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="d-flex" style="background-color: white; border-radius: 10px;justify-content: space-between; padding: 10px 25px;">
+                    <div>
+                        <img style="width: 70px; height: 70px;" src="../../../../../assets/icon/docquyen.png" alt="">
+                    </div>
+                    <div style="margin: auto 0; font-weight: 500; font-size: 22px;">
+                        Điện thoại độc quyền
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container" style="background-color: #fed5bc; padding-bottom: 50px; padding-top: 10px; padding-left: 15px; padding-right: 15px; margin-top: 20px; border-radius: 10px;">
+        <div class="h3 title text-center">
+            Sản phẩm nổi bật
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-3 col-xl-2" *ngFor="let product of listPhoneOutstanding" style="height: 85%;">
+                <app-card-product [product]="product"></app-card-product>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" style="background-color: white; padding: 15px; margin-top: 20px; border-radius: 10px;">
+        <div class="h3 title text-center">
+            Các dịch vụ tiện ích
+        </div>
+        <div class="row">
+            <div class="col-3">
+                <div class="d-flex" style="padding: 10px 25px; height: 170px;">
+                    <div class="row" style="background-color: #dceeff; padding: 15px; border-radius: 10px;">
+                        <div class="col-3">
+                            <i class="bi bi-phone" style="color: #2e94e6; font-size: 25px; font-weight: 500;"></i>
+                        </div>
+                        <div class="col-9">
+                            Mua Mã thẻ cào
+                            Giảm 3%  cho mệnh giá từ 100.000 trở lên
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="d-flex" style="padding: 10px 25px; height: 170px;">
+                    <div class="row" style="background-color: #fef5cf; padding: 15px; border-radius: 10px;">
+                        <div class="col-3">
+                            <i class="bi bi-lightning-fill" style="color: #fd9e08; font-size: 25px; font-weight: 500;"></i>
+                        </div>
+                        <div class="col-9">
+                            Dịch vụ đóng tiền
+                            Điện, nước, internet,
+                            Cước điện thoại trả sau 
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="d-flex" style="padding: 10px 25px; height: 170px;">
+                    <div class="row" style="background-color: #ffefdb; padding: 15px; border-radius: 10px;">
+                        <div class="col-3">
+                            <i class="bi bi-controller" style="color: #ff5a50; font-size: 25px; font-weight: 500;"></i>
+                        </div>
+                        <div class="col-9">
+                            Mua thẻ game
+                            Giảm 5% cho tất cả nhà mạng, áp dụng cho mệnh giá từ 300.000 trở lên
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="d-flex" style="padding: 10px 25px; height: 170px;">
+                    <div class="row" style="background-color: #e1fecf; padding: 15px; border-radius: 10px;">
+                        <div class="col-3">
+                            <i class="bi bi-truck-front-fill" style="color: #60e054; font-size: 25px; font-weight: 500;"></i>
+                        </div>
+                        <div class="col-9">
+                            Mua vé máy bay, tàu.
+                            Thu hộ tiền vé xe, vé tàu, vé máy bay
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" style="background-color: #dceeff; padding-bottom: 50px; padding-top: 10px; padding-left: 15px; padding-right: 15px; margin-top: 20px; border-radius: 10px;">
+        <div class="h3 title text-center">
+            Các phụ kiện hot
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-3 col-xl-2" *ngFor="let product of listProductAccessory" style="height: 85%;">
+                <app-card-product [product]="product" class="c_product"></app-card-product>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="h3 title">Các hãng điện thoại</div>
+        <div class="row">
+            <div class="col-4 col-md-2" routerLink="/products/shop">
+                <p class="card-brand" type="button">IPHONE</p> 
+            </div>
+            <div class="col-4 col-md-2" routerLink="/products/shop">
+                <p class="card-brand" style="font-weight: bold;" type="button">SAMSUNG</p> 
+            </div>
+            <div class="col-4 col-md-2" routerLink="/products/shop">
+                <p class="card-brand" style="color: blue;" type="button">VIVO</p> 
+            </div>
+            <div class="col-4 col-md-2" routerLink="/products/shop">
+                <p class="card-brand" style="color: green; font-weight: bold;" type="button">OPPO</p> 
+            </div>
+            <div class="col-4 col-md-2" routerLink="/products/shop">
+                <p class="card-brand" style="font-weight: 700;" type="button">REALME</p> 
+            </div>
+            <div class="col-4 col-md-2" routerLink="/products/shop">
+                <p class="card-brand" style="color: darkslateblue; font-weight: bold;" type="button">NOKIA</p> 
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="h3 title">
+            Danh sách sản phẩm
+        </div>
+        <div class="row justify-content-center row-cols-5">
+            <div class="col" *ngFor="let product of listProduct">
+                <app-card-product [product]="product" class="c_product"></app-card-product>
+            </div>
+        </div>
+    </div>
+</div>
+
+

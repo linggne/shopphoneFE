@@ -1,0 +1,10 @@
+table {
+    width: 100%;
+    transition: none !important;
+    box-shadow: none !important;
+}
+.image{
+    margin: 15px 0;
+    width: 100px;
+    height: 100px;
+}

@@ -1,0 +1,45 @@
+<mat-toolbar color="primary" class="toolbar">
+	<button mat-icon-button (click)="isExpanded = !isExpanded"><mat-icon>menu</mat-icon></button>
+	<div class="d-flex" style="justify-content: space-between; width: 100%;">
+		<div><h1 class="app-name">Quản lý cửa hàng điện thoại</h1></div>
+		<div *ngIf="isLoginAdmin | async"><a type="button" style="color: white;" (click)="logout()">Đăng xuất</a></div>
+	</div>
+</mat-toolbar>
+<mat-sidenav-container class="admin-container" autosize>
+	<mat-sidenav #sidenav class="admin-sidenav" mode="side" opened="true" (mouseenter)="mouseenter()" (mouseleave)="mouseleave()" *ngIf="(isLoginAdmin | async) === 'admin'">
+		<mat-nav-list>
+			<mat-list-item (click)="showSubmenuProduct = !showSubmenuProduct" class="parent">
+				<span class="full-width text-white">Sản phẩm</span>
+			</mat-list-item>
+				<div class="submenu" [ngClass]="{'expanded' : showSubmenuProduct}" *ngIf="isShowing || isExpanded">
+					<a mat-list-item href="/admin/manager-list-product" class="text-white">Danh sách sản phẩm</a>
+					<a mat-list-item href="/admin/add-product" class="text-white">Thêm sản phẩm</a>
+				</div>
+			<mat-list-item (click)="showSubmenuUser = !showSubmenuUser" class="parent">
+				<span class="full-width text-white">Người dùng</span>
+			</mat-list-item>
+				<div class="submenu" [ngClass]="{'expanded' : showSubmenuUser}" *ngIf="isShowing || isExpanded">
+					<a mat-list-item href="/admin/list-user" class="text-white">Danh sách</a>
+				</div>
+			<mat-list-item (click)="showSubmenuOrder =!showSubmenuOrder" class="parent">
+				<span class="full-width text-white">Đơn hàng</span>
+			</mat-list-item>
+				<div class="submenu" [ngClass]="{'expanded' : showSubmenuOrder}" *ngIf="isShowing || isExpanded">
+					<a mat-list-item href="/admin/manager-list-order" class="text-white">Danh sách đơn hàng</a>
+				</div>
+			<mat-list-item (click)="showSubmenuContact = !showSubmenuContact" class="parent">
+				<span class="full-width text-white">Phản hồi</span>
+			</mat-list-item>
+				<div class="submenu" [ngClass]="{'expanded' : showSubmenuContact}" *ngIf="isShowing || isExpanded">
+					<a mat-list-item href="/admin/contacts" class="text-white">Danh sách phản hồi</a>
+				</div>
+		</mat-nav-list>
+    <mat-nav-list>
+</mat-nav-list>
+	</mat-sidenav>
+
+	<div class="sidenav-content">
+		<router-outlet></router-outlet>
+	</div>
+
+</mat-sidenav-container>

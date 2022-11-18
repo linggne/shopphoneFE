@@ -1,0 +1,38 @@
+table {
+    width: 100%;
+    transition: none !important;
+    box-shadow: none !important;
+  }
+.image{
+    margin: 15px 0;
+    width: 100px;
+    height: 100px;
+}
+.cart-content{
+    padding: 15px 15px;
+    background-color: white;
+    box-shadow: 0.1ch 0.1ch 0.1ch 0.1ch gray;
+    border-radius: 10px;
+    margin-bottom: 100px;
+}
+mat-table{
+    transition: none !important;
+    box-shadow: none !important;
+  }
+.summary-content-1 {
+  display: flex;
+  justify-content: space-between;
+  margin: 15px 15px;
+}
+.summary-content-2{
+  margin: 0 15px;
+}
+.btn-checkout{
+  background-color: black;
+  color: white;
+  width: 100%;
+  margin: 15px 0;
+}
+.icon-cart {
+  font-size: 20px;
+}
